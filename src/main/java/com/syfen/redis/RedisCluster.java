@@ -5,4 +5,9 @@ package com.syfen.redis;
  * Created: 4/09/13 8:42 AM
  */
 public class RedisCluster {
+
+    public RedisCluster(String clusterName, RedisClusterConfig config) {
+
+
+    }
 }
