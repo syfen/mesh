@@ -6,12 +6,20 @@ package com.syfen.redis;
  */
 public class RedisClusterCacheItem {
 
-    public String clusterName;
-    public RedisCluster redisCluster;
+    private String name;
+    private RedisCluster cluster;
 
     public RedisClusterCacheItem(String clusterName, RedisCluster redisCluster) {
 
-        this.clusterName = clusterName;
-        this.redisCluster = redisCluster;
+        this.name = clusterName;
+        this.cluster = redisCluster;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public RedisCluster getCluster() {
+        return cluster;
     }
 }
