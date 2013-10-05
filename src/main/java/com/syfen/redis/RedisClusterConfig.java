@@ -7,24 +7,10 @@ package com.syfen.redis;
 public class RedisClusterConfig {
 
     // set default values
-    private String rootNode = Constants.ZK_DEFAULT_REDIS_ROOT_NODE;
     private String clientsNode = Constants.ZK_DEFAULT_REDIS_CLIENTS_NODE;
     private String serversNode = Constants.ZK_DEFAULT_REDIS_SERVERS_NODE;
     private String hostnameNode = Constants.ZK_DEFAULT_REDIS_HOSTNAME_NODE;
     private String portNode = Constants.ZK_DEFAULT_REDIS_PORT_NODE;
-
-    public String getRootNode() {
-        return rootNode;
-    }
-
-    public void setRootNode(String rootNode) {
-        this.rootNode = rootNode;
-    }
-
-    public RedisClusterConfig withRootNode(String rootNode) {
-        this.rootNode = rootNode;
-        return this;
-    }
 
     public String getClientsNode() {
         return clientsNode;
