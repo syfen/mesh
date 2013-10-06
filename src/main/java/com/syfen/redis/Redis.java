@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -43,7 +44,7 @@ public class Redis {
             RedisClusterCacheItem cachedItem = cache.getIfPresent(clusterName);
 
             if (cachedItem != null) {
-                return cachedItem.redisCluster;
+                return cachedItem.getCluster();
             }
 
             return initializeCluster(clusterName);
@@ -65,6 +66,11 @@ public class Redis {
         return list;
     }
 
+    public static Map<String, RedisClusterCacheItem> getClusters() {
+
+        return cache.asMap();
+    }
+
     public static int getClusterCount() {
 
         return cache.asMap().size();
@@ -75,10 +81,10 @@ public class Redis {
         RedisClusterCacheItem cachedItem = cache.getIfPresent(clusterName);
 
         if (cachedItem != null) {
-            return cachedItem.redisCluster;
+            return cachedItem.getCluster();
         }
 
-        RedisCluster cluster = new RedisCluster(clusterName, config);
+        RedisCluster cluster = new RedisCluster(clusterName, config, zkClient);
 
         cache.put(clusterName, new RedisClusterCacheItem(clusterName, cluster));
 
