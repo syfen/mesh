@@ -6,8 +6,10 @@ package com.syfen.redis.exceptions;
  */
 public class RedisNotInitializedException extends Exception {
 
-    public RedisNotInitializedException(String message) {
+    public RedisNotInitializedException(String message) {}
 
-        super(message);
+    public String getMessage() {
+
+        return "Redis has not been initialized.";
     }
 }
